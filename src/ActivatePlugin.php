@@ -2,17 +2,14 @@
 
 class ActivatePlugin
 {
-    private $wpdb;
+    static $wpdb;
 
-    public function __construct($wpdb)
-    {
-        $this->wpdb = $wpdb;
-    }
+
 
     //METODOS PARA CREAR DATOS NECESARIOS EN BASE DE DATOS
-    public function createBanks()
+    public static function createBanks()
     {
-        $wpdb = $this->wpdb;
+        $wpdb = self::$wpdb;
 
         $sql = "DROP TABLE IF EXISTS {$wpdb->prefix}venezuelan_banks";
         $wpdb->query($sql);
@@ -148,10 +145,11 @@ class ActivatePlugin
         ));
     }
 
-    public function getBanks()
+    public static function getBanks()
     {
-        $query = "SELECT * FROM {$this->wpdb->prefix}venezuelan_banks";
-        $result = $this->wpdb->get_results($query,OBJECT);
+        $wpdb = self::$wpdb;
+        $query = "SELECT * FROM {$wpdb->prefix}venezuelan_banks";
+        $result = $wpdb->get_results($query,OBJECT);
 
         return $result;
     }

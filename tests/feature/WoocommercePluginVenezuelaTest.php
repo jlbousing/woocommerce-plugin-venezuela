@@ -31,9 +31,13 @@ class WoocommercePluginVenezuelaTest extends TestCase
 
     public function test_create_banks()
     {
-        $activatePlugin = new ActivatePlugin($this->wpdb);
-        $activatePlugin->createBanks();
-        $banks = $activatePlugin->getBanks();
+        //$activatePlugin = new ActivatePlugin($this->wpdb);
+        //$activatePlugin->createBanks();
+        //$banks = $activatePlugin->getBanks();
+
+        ActivatePlugin::$wpdb = $this->wpdb;
+        ActivatePlugin::createBanks();
+        $banks = ActivatePlugin::getBanks();
 
         $this->assertEquals(23,count($banks));
     }
