@@ -1,0 +1,20 @@
+{
+    "name": "jlbousing/woocommerce-plugin-venezuela",
+    "description": "Plugin para registrar pagos de pedidos en woocommerce con Bolivares (moneda oficial de Venezuela) a traves de pago movil, transferencias, zelle y quizas otros metodos tambien...",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jorge Luis Bou-saad",
+            "email": "jbousing@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
