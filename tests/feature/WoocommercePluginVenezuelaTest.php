@@ -42,4 +42,5 @@ class WoocommercePluginVenezuelaTest extends TestCase
         $this->assertEquals(23,count($banks));
     }
 
+
 }

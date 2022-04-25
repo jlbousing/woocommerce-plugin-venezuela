@@ -153,4 +153,5 @@ class ActivatePlugin
 
         return $result;
     }
+
 }
