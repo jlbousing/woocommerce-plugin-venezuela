@@ -1,5 +1,7 @@
 <?php
 
+include_once ("ActivatePlugin.php");
+
 class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
 {
 

@@ -8,6 +8,7 @@ include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-inclu
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/ActivatePlugin.php");
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/WC_Transferencias_Venezuela.php");
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/WC_Pago_Movil_Venezuela.php");
+include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/WC_Zelle_Venezuela.php");
 
 class WoocommercePluginVenezuelaTest extends TestCase
 {
@@ -52,6 +53,13 @@ class WoocommercePluginVenezuelaTest extends TestCase
         $pagoMovil = new WC_Pago_Movil_Venezuela();
 
         $this->assertEquals("pago movil",$pagoMovil->id);
+    }
+
+    public function test_init_zelle()
+    {
+        $zelle = new WC_Zelle_Venezuela();
+
+        $this->assertEquals("zelle",$zelle->id);
     }
 
 
