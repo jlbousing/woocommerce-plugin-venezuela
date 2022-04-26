@@ -7,6 +7,8 @@ include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-load.
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-includes/wp-db.php");
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/ActivatePlugin.php");
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/WC_Transferencias_Venezuela.php");
+include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/WC_Pago_Movil_Venezuela.php");
+
 class WoocommercePluginVenezuelaTest extends TestCase
 {
 
@@ -31,10 +33,6 @@ class WoocommercePluginVenezuelaTest extends TestCase
 
     public function test_create_banks()
     {
-        //$activatePlugin = new ActivatePlugin($this->wpdb);
-        //$activatePlugin->createBanks();
-        //$banks = $activatePlugin->getBanks();
-
         ActivatePlugin::$wpdb = $this->wpdb;
         ActivatePlugin::createBanks();
         $banks = ActivatePlugin::getBanks();
@@ -48,6 +46,14 @@ class WoocommercePluginVenezuelaTest extends TestCase
 
         $this->assertEquals("Transferencias de Bancos Nacionales dentro de Venezuela",$transferencia->title);
     }
+
+    public function test_init_pago_movil_venezuela()
+    {
+        $pagoMovil = new WC_Pago_Movil_Venezuela();
+
+        $this->assertEquals("pago movil",$pagoMovil->id);
+    }
+
 
 
 }
