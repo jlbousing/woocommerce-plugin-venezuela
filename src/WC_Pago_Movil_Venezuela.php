@@ -118,12 +118,20 @@ class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
     }
 
     public function save_order_payment_type_meta_data( $order, $data ) {
-        if ( $data['payment_method'] === $this->id && isset($_POST['bank']) ){
-            $order->update_meta_data('_banco', esc_attr($_POST['bank']) );
+        if ( $data['payment_method'] === $this->id && isset($_POST['reference_number']) ){
+            $order->update_meta_data('_reference_number', esc_attr($_POST['reference_number']) );
         }
 
-        if( $data["payment_method"] === $this->id && isset($_POST["payment_number"])){
-            $order->update_meta_data("_payment_number",esc_attr($_POST["payment_number"]));
+        if( $data["payment_method"] === $this->id && isset($_POST["amount"])){
+            $order->update_meta_data("_amount",esc_attr($_POST["amount"]));
+        }
+
+        if( $data["payment_method"] === $this->id && isset($_POST["date"])){
+            $order->update_meta_data("_date",esc_attr($_POST["date"]));
+        }
+
+        if( $data["payment_method"] === $this->id && isset($_POST["bank"])){
+            $order->update_meta_data("_bank",esc_attr($_POST["bank"]));
         }
     }
 
