@@ -16,8 +16,11 @@ function test_add_gateway_class( $gateways ) {
 }
 
 
-add_action( 'plugins_loaded', 'test_init_gateway_class' );
-function test_init_gateway_class() {
+add_action( 'plugins_loaded', 'init_gateway_class' );
+function init_gateway_class() {
 
-    require_once plugin_dir_path( __FILE__ ) . '/src/WC_Test_Gateway.php';
+    //require_once plugin_dir_path( __FILE__ ) . '/src/WC_Test_Gateway.php';
+    require_once plugin_dir_path(__FILE__) . "src/WC_Pago_Movil_Venezuela";
+    require_once plugin_dir_path(__FILE__) . "src/WC_Transferencias_Venezuela";
+    require_once plugin_dir_path(__FILE__) . "src/WC_Zelle_Venezuela";
 }
