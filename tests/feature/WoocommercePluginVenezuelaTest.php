@@ -6,7 +6,7 @@ include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-confi
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-load.php");
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-includes/wp-db.php");
 include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/ActivatePlugin.php");
-
+include_once("/home/jorge/Documentos/projects/wordpress-comercialgeorge/wp-content/plugins/woocomerce-plugin-venezuela/src/WC_Transferencias_Venezuela.php");
 class WoocommercePluginVenezuelaTest extends TestCase
 {
 
@@ -40,6 +40,13 @@ class WoocommercePluginVenezuelaTest extends TestCase
         $banks = ActivatePlugin::getBanks();
 
         $this->assertEquals(23,count($banks));
+    }
+
+    public function test_init_transferencia_venezuela()
+    {
+        $transferencia = new WC_Transferencias_Venezuela();
+
+        $this->assertEquals("Transferencias de Bancos Nacionales dentro de Venezuela",$transferencia->title);
     }
 
 

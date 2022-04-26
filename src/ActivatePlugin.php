@@ -4,8 +4,6 @@ class ActivatePlugin
 {
     static $wpdb;
 
-
-
     //METODOS PARA CREAR DATOS NECESARIOS EN BASE DE DATOS
     public static function createBanks()
     {
