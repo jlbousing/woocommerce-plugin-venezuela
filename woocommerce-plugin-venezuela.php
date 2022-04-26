@@ -21,11 +21,15 @@ function plugin_init(){
     ActivatePlugin::createBanks();
 
 }
-register_activation_hook();
+register_activation_hook(__FILE__,"plugin_init");
 
 add_filter( 'woocommerce_payment_gateways', 'test_add_gateway_class' );
 function test_add_gateway_class( $gateways ) {
-    $gateways[] = 'WC_Test_Gateway'; // your class name is here
+    //$gateways[] = 'WC_Test_Gateway'; // your class name is here
+    $gateways[] = 'WC_Pago_Movil_Venezuela';
+    $gateways[] = 'WC_Transferencias_Venezuela';
+    $gateways[] = 'WC_Zelle_Venezuela';
+
     return $gateways;
 }
 
@@ -33,7 +37,7 @@ add_action( 'plugins_loaded', 'init_gateway_class' );
 function init_gateway_class() {
 
     //require_once plugin_dir_path( __FILE__ ) . '/src/WC_Test_Gateway.php';
-    require_once plugin_dir_path(__FILE__) . "src/WC_Pago_Movil_Venezuela.php";
-    require_once plugin_dir_path(__FILE__) . "src/WC_Transferencias_Venezuela.php";
-    require_once plugin_dir_path(__FILE__) . "src/WC_Zelle_Venezuela.php";
+    require_once plugin_dir_path( __FILE__ ) . '/src/WC_Pago_Movil_Venezuela.php';
+    require_once plugin_dir_path(__FILE__) . "/src/WC_Transferencias_Venezuela.php";
+    require_once plugin_dir_path(__FILE__) . "/src/WC_Zelle_Venezuela.php";
 }
