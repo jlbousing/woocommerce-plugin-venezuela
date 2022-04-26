@@ -46,9 +46,11 @@ class WC_Transferencias_Venezuela extends WC_Payment_Gateway
      * You will need it if you want your custom credit card form, Step 4 is about it
      */
 
-
     public function getBanksValue()
     {
+        global $wpdb;
+        ActivatePlugin::$wpdb = $wpdb;
+
         $array = [];
         $banks = ActivatePlugin::getBanks();
 

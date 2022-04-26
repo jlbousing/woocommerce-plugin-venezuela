@@ -45,20 +45,6 @@ class WC_Zelle_Venezuela extends WC_Payment_Gateway
      * You will need it if you want your custom credit card form, Step 4 is about it
      */
 
-
-    public function getBanksValue()
-    {
-        $array = [];
-        $banks = ActivatePlugin::getBanks();
-
-        foreach ($banks as $bank)
-        {
-            $array[$bank->bank_name] = __( $bank->bank_name, 'payleo-payments-woo' );
-        }
-
-        return $array;
-    }
-
     public function payment_fields()
     {
         echo '<div style="display: block; width:300px; height:auto;">';

@@ -49,6 +49,9 @@ class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
 
     public function getBanksValue()
     {
+        global $wpdb;
+        ActivatePlugin::$wpdb = $wpdb;
+
         $array = [];
         $banks = ActivatePlugin::getBanks();
 

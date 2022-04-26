@@ -14,6 +14,15 @@ License: GPLv2
 require_once plugin_dir_path(__FILE__) . "/src/ActivatePlugin.php";
 
 
+function plugin_init(){
+
+    global $wpdb;
+    ActivatePlugin::$wpdb = $wpdb;
+    ActivatePlugin::createBanks();
+
+}
+register_activation_hook();
+
 add_filter( 'woocommerce_payment_gateways', 'test_add_gateway_class' );
 function test_add_gateway_class( $gateways ) {
     $gateways[] = 'WC_Test_Gateway'; // your class name is here
