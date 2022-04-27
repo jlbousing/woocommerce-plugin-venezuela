@@ -7,12 +7,12 @@ class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
 
     public function __construct() {
 
-        $this->id = "pago movil";
+        $this->id = "test-payment";
         $this->has_fields = true;
-        $this->method_title = "Pago movil Venezuela para Woocommerce";
-        $this->method_description = "Registro de pago movil venezolano para Woocommerce";
+        $this->method_title = "Pago Movil";
+        $this->method_description = "Registro de transferencias en Pago Movil para Woocommerce";
 
-        $this->title = "Pago movil de Bancos Nacionales dentro de Venezuela";
+        $this->title = "Pago Movil";
         $this->description = "Registro de comprobante para transferencias bancarias con banca venezolana";
         $this->instructions = "Ingrese en el formulario el numero de referencia, 
                                monto transferido, fecha de la transferencia y su banco de donde hizo la transferencia";
@@ -33,7 +33,7 @@ class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
         $this->form_fields = array(
             'enabled' => array(
                 'title'       => 'Activar/Desactivar',
-                'label'       => 'Activar registro de transferencias de banca nacional',
+                'label'       => 'Activar Pago Movil',
                 'type'        => 'checkbox',
                 'description' => '',
                 'default'     => 'no'
@@ -45,7 +45,6 @@ class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
     /**
      * You will need it if you want your custom credit card form, Step 4 is about it
      */
-
 
     public function getBanksValue()
     {
@@ -65,6 +64,7 @@ class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
 
     public function payment_fields()
     {
+        echo $this->instructions;
         echo '<div style="display: block; width:300px; height:auto;">';
         //echo '<img src="' . plugins_url('../assets/icon.png', __FILE__ ) . '">';
 
@@ -121,6 +121,7 @@ class WC_Pago_Movil_Venezuela extends WC_Payment_Gateway
     }
 
     public function save_order_payment_type_meta_data( $order, $data ) {
+
         if ( $data['payment_method'] === $this->id && isset($_POST['reference_number']) ){
             $order->update_meta_data('_reference_number', esc_attr($_POST['reference_number']) );
         }

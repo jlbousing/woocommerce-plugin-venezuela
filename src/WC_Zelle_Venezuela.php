@@ -11,7 +11,7 @@ class WC_Zelle_Venezuela extends WC_Payment_Gateway
         $this->method_title = "Zelle Woocommerce";
         $this->method_description = "Registro de transferencias con Zelle para Woocommerce";
 
-        $this->title = "Transferencias de Bancos Nacionales dentro de Venezuela";
+        $this->title = "Pago con Zelle";
         $this->description = "Registro de comprobante para transferencias con Zelle";
         $this->instructions = "Ingrese en el formulario el email con que se hizo la transferencia, el monto total
                                y fecha en la que se hizo la transferencia";
@@ -47,6 +47,7 @@ class WC_Zelle_Venezuela extends WC_Payment_Gateway
 
     public function payment_fields()
     {
+        echo $this->instructions;
         echo '<div style="display: block; width:300px; height:auto;">';
         //echo '<img src="' . plugins_url('../assets/icon.png', __FILE__ ) . '">';
 

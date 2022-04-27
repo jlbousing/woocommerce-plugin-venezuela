@@ -64,6 +64,7 @@ class WC_Transferencias_Venezuela extends WC_Payment_Gateway
 
     public function payment_fields()
     {
+        echo $this->instructions;
         echo '<div style="display: block; width:300px; height:auto;">';
         //echo '<img src="' . plugins_url('../assets/icon.png', __FILE__ ) . '">';
 
