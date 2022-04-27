@@ -45,21 +45,21 @@ class WoocommercePluginVenezuelaTest extends TestCase
     {
         $transferencia = new WC_Transferencias_Venezuela();
 
-        $this->assertEquals("Transferencias de Bancos Nacionales dentro de Venezuela",$transferencia->title);
+        $this->assertInstanceOf(WC_Transferencias_Venezuela::class,$transferencia);
     }
 
     public function test_init_pago_movil_venezuela()
     {
         $pagoMovil = new WC_Pago_Movil_Venezuela();
 
-        $this->assertEquals("pago movil",$pagoMovil->id);
+        $this->assertInstanceOf(WC_Pago_Movil_Venezuela::class,$pagoMovil);
     }
 
     public function test_init_zelle()
     {
         $zelle = new WC_Zelle_Venezuela();
 
-        $this->assertEquals("zelle",$zelle->id);
+        $this->assertInstanceOf(WC_Zelle_Venezuela::class,$zelle);
     }
 
 
